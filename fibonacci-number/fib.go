@@ -1,12 +1,11 @@
 package main
 
-func fib(n int) int {
+/*
+	Fib is function for calculation fibonacci numbers
+*/
+func Fib(n int) int {
 	if n == 0 || n == 1 {
 		return n
 	}
-	return fib(n-1) + fib(n-2)
-}
-
-func main() {
-	println(fib(3))
+	return Fib(n-1) + Fib(n-2)
 }
