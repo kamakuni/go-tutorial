@@ -19,7 +19,9 @@ func NewStack() *stack {
 */
 func (s *stack) Pop() string {
 	val := s.values[len(s.values)-1]
-	s.values = append(s.values[:len(s.values)-1], s.values[len(s.values):]...)
+	if len(s.values) > 0 {
+		s.values = s.values[:len(s.values)-1]
+	}
 	return val
 }
 
