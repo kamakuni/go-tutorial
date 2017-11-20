@@ -32,3 +32,8 @@ func TestOutputOrder(t *testing.T) {
 		t.Error("something occurs.")
 	}
 }
+
+func TestPopEmptyStack(t *testing.T) {
+	stack := NewStack()
+	stack.Pop()
+}
