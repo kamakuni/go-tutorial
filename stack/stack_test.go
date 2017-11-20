@@ -27,10 +27,10 @@ func TestOutputOrder(t *testing.T) {
 	stack.Push(val2)
 	res1 := stack.Pop()
 	res2 := stack.Pop()
-	if res1 != "value1" {
+	if res1 != "value2" {
 		t.Error("something occurs.")
 	}
-	if res2 != "value2" {
+	if res2 != "value1" {
 		t.Error("something occurs.")
 	}
 }
