@@ -1,5 +1,7 @@
 package stack
 
+import "errors"
+
 /*
  * Stack is stack
  */
@@ -17,15 +19,15 @@ func NewStack() *stack {
 /*
 　Pop is for popping value from a stack
 */
-func (s *stack) Pop() string {
+func (s *stack) Pop() (string, error) {
 	if len(s.values) == 0 {
-		return ""
+		return "", errors.New("error: pop from empty list")
 	}
 	val := s.values[len(s.values)-1]
 	if len(s.values) > 0 {
 		s.values = s.values[:len(s.values)-1]
 	}
-	return val
+	return val, nil
 }
 
 /*

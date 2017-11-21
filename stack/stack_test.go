@@ -13,7 +13,10 @@ func TestPushAndPop(t *testing.T) {
 	stack := NewStack()
 	value := "value"
 	stack.Push(value)
-	res := stack.Pop()
+	res, err := stack.Pop()
+	if err != nil {
+		t.Error("something occurs.")
+	}
 	if res != value {
 		t.Error("something occurs.")
 	}
@@ -25,15 +28,32 @@ func TestOutputOrder(t *testing.T) {
 	val2 := "value2"
 	stack.Push(val1)
 	stack.Push(val2)
-	if stack.Pop() != "value2" {
+	res1, err1 := stack.Pop()
+	if err1 != nil {
 		t.Error("something occurs.")
 	}
-	if stack.Pop() != "value1" {
+	if res1 != "value2" {
+		t.Error("something occurs.")
+	}
+	res2, err2 := stack.Pop()
+	if err2 != nil {
+		t.Error("something occurs.")
+	}
+	if res2 != "value1" {
 		t.Error("something occurs.")
 	}
 }
 
 func TestPopEmptyStack(t *testing.T) {
 	stack := NewStack()
-	stack.Pop()
+	res, err := stack.Pop()
+	if err == nil {
+		t.Error("something occurs.")
+	}
+	if err.Error() != "error: pop from empty list" {
+		t.Error("something occurs.")
+	}
+	if res != "" {
+		t.Error("something occurs.")
+	}
 }
