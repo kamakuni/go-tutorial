@@ -18,6 +18,9 @@ func NewStack() *stack {
 　Pop is for popping value from a stack
 */
 func (s *stack) Pop() string {
+	if len(s.values) == 0 {
+		return ""
+	}
 	val := s.values[len(s.values)-1]
 	if len(s.values) > 0 {
 		s.values = s.values[:len(s.values)-1]
